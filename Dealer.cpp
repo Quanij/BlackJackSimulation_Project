@@ -92,16 +92,30 @@ bool Dealer::Strategy(int handScore)
  
 void Dealer::Play(int handScore)
 {
+	std::cout << "Dealer Played!" << std::endl;
+
 	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Dealer drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Dealer stayed..." << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << "Dealer drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << "Dealer stayed..." << std::endl;
+			break;
+		}
 	}
 }
 
