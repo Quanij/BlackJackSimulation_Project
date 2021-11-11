@@ -100,11 +100,11 @@ bool BlackPlayer::QuittingBehaviour()
 {
 
 	if (TrackRecord.size() >= 4) {
-		std::cout << "I quit";
+		//std::cout << "I quit";
 		return true;
 	}
 	else {
-		std::cout << "I do NOT quit";
+		//std::cout << "I do NOT quit";
 		return false;
 	}
 
