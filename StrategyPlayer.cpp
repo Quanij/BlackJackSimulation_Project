@@ -11,18 +11,30 @@
 
 void RandomRedPlayer::Play(int handScore)
 {
-	cout << "Random red player Played!" << endl;
+	cout << "\n Random Red player Played!" << endl;
 
 	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Random red player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Random red player stayed..." << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << " Random red player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << " Random red player stayed..." << std::endl;
+			break;
+		}
 	}
 }
 
@@ -52,18 +64,30 @@ bool RandomRedPlayer::Strategy(int handScore)
 
 void MimicRedPlayer::Play(int handScore)
 {
-	cout << "Mimic red player Played!" << endl;
+	cout << "\n Mimic Red player Played!" << endl;
 
 	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Mimic red player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Mimic red stayed..." << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << " Mimic red player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << " Mimic red player stayed..." << std::endl;
+			break;
+		}
 	}
 }
 
@@ -84,18 +108,30 @@ bool MimicRedPlayer::Strategy(int handScore)
 
 void SafeRedPlayer::Play(int handScore)
 {
-	cout << "Safe red player Played!" << endl;
+	cout << "\n Safe Red player Played!" << endl;
 
 	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Safe red player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Safe red player stayed..." << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << " Safe red player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << " Safe red player stayed..." << std::endl;
+			break;
+		}
 	}
 }
 
@@ -103,11 +139,11 @@ void SafeRedPlayer::Play(int handScore)
 
 bool SafeRedPlayer::Strategy(int handScore)
 {
-	if (handScore > 16) {
-		return true;
+	if (handScore > 16 && handScore <= 21) {
+		return false;
 	}
 	else {
-		return false;
+		return true;
 	}
 }
 
@@ -118,18 +154,30 @@ bool SafeRedPlayer::Strategy(int handScore)
 
 void CustomRedPlayer::Play(int handScore)
 {
-	cout << "Custom red player Played!" << endl;
+	cout << "\n Custom Red player Played!" << endl;
 
 	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Custom red player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Custom red player stayed..." << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << " Custom red player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << " Custom red player stayed..." << std::endl;
+			break;
+		}
 	}
 }
 
@@ -158,18 +206,30 @@ bool CustomRedPlayer::Strategy(int handScore)
 
 void RandomGreenPlayer::Play(int handScore)
 {
-	cout << "Random green player Played!" << endl;
+	cout << "\n Random Green player Played!" << endl;
 
 	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Random green player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Random green player stayed..." << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << " Random green player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << " Random green player stayed..." << std::endl;
+			break;
+		}
 	}
 }
 
@@ -182,7 +242,7 @@ bool RandomGreenPlayer::Strategy(int handScore)
 
 	int number;
 	number = (rand() % (max - min + 1)) + min;
-	if (number < max) {
+	if (number < 21) {
 		//Bet();
 		return true;
 	}
@@ -199,19 +259,30 @@ bool RandomGreenPlayer::Strategy(int handScore)
 
 void MimicGreenPlayer::Play(int handScore)
 {
-	cout << "Mimic green player Played!" << endl;
-
+	cout << "\n Mimic Green player Played!" << endl;
 
 	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Mimic green player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Mimic green player stayed..." << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << " Mimic green player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << " Mimic green player stayed..." << std::endl;
+			break;
+		}
 	}
 }
 
@@ -232,19 +303,30 @@ bool MimicGreenPlayer::Strategy(int handScore)
 
 void SafeGreenPlayer::Play(int handScore)
 {
-	cout << "Safe green player Played!" << endl;
-
+	cout << "\n Safe Green player Played!" << endl;
 
 	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Safe green player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Safe green player stayed..." << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << " Safe green player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << " Safe green player stayed..." << std::endl;
+			break;
+		}
 	}
 }
 
@@ -252,11 +334,11 @@ void SafeGreenPlayer::Play(int handScore)
 
 bool SafeGreenPlayer::Strategy(int handScore)
 {
-	if (handScore > 16) {
-		return true;
+	if (handScore > 16 && handScore <= 21) {
+		return false;
 	}
 	else {
-		return false;
+		return true;
 	}
 }
 
@@ -267,23 +349,230 @@ bool SafeGreenPlayer::Strategy(int handScore)
 
 void CustomGreenPlayer::Play(int handScore)
 {
-	cout << "Custom green player Played!" << endl;
+	cout << "\n Custom Green player Played!" << endl;
 
 	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Custom green player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Custom green player stayed..." << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << " Custom green player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << " Custom green player stayed..." << std::endl;
+			break;
+		}
 	}
 }
 
 
 bool CustomGreenPlayer::Strategy(int handScore)
+{
+	if (handScore <= 16 && handScore >= 5)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+
+// Black Player ---------------------------------
+// Black Player ---------------------------------
+// Black Player ---------------------------------
+// Black Player ---------------------------------
+
+// --------------------------------- Random Player ----------------------------------------------------------//
+
+void RandomBlackPlayer::Play(int handScore)
+{
+	cout << "\n Random Black player Played!" << endl;
+
+	std::cout << "Hand Score : " << handScore << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << " Random black player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << " Random black player stayed..." << std::endl;
+			break;
+		}
+	}
+}
+
+
+
+bool RandomBlackPlayer::Strategy(int handScore)
+{
+	//int min = 1;
+	//int max = 2;
+	int min = handScore + 1;
+	int max = handScore + 2;
+
+	int number;
+	number = (rand() % (max - min + 1)) + min;
+	if (number < 21) {
+		//Bet();
+		return true;
+	}
+	else {
+		//cout << "Random Red Player Skips!" << endl;
+		return false;
+	}
+
+}
+
+
+// --------------------------------- Mimic Player ----------------------------------------------------------//
+
+
+void MimicBlackPlayer::Play(int handScore)
+{
+	cout << "\n Mimic Black player Played!" << endl;
+
+	std::cout << "Hand Score : " << handScore << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << " Mimic black player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << " Mimic black player stayed..." << std::endl;
+			break;
+		}
+	}
+}
+
+bool MimicBlackPlayer::Strategy(int handScore)
+{
+	if (handScore <= 16)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+// --------------------------------- Safe Player ----------------------------------------------------------//
+
+
+void SafeBlackPlayer::Play(int handScore)
+{
+	cout << "\n Safe Black player Played!" << endl;
+
+	std::cout << "Hand Score : " << handScore << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << " Safe black player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << " Safe black player stayed..." << std::endl;
+			break;
+		}
+	}
+}
+
+
+
+bool SafeBlackPlayer::Strategy(int handScore)
+{
+	if (handScore > 16 && handScore <= 21) {
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+
+
+
+// --------------------------------- Custom Player ----------------------------------------------------------//
+
+
+void CustomBlackPlayer::Play(int handScore)
+{
+	cout << "\n Custom Black player Played!" << endl;
+
+	std::cout << "Hand Score : " << handScore << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << " Custom black player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << " Custom black player stayed..." << std::endl;
+			break;
+		}
+	}
+}
+
+
+bool CustomBlackPlayer::Strategy(int handScore)
 {
 	if (handScore <= 16 && handScore >= 5)
 	{
@@ -305,18 +594,30 @@ bool CustomGreenPlayer::Strategy(int handScore)
 
 void RandomBluePlayer::Play(int handScore)
 {
-	cout << "Random blue player Played!" << endl;
+	cout << "\nRandom Blue player Played!" << endl;
 
 	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Random blue player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Random blue player stayed..." << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << "Random blue player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << "Random blue player stayed..." << std::endl;
+			break;
+		}
 	}
 }
 
@@ -330,7 +631,7 @@ bool RandomBluePlayer::Strategy(int handScore)
 
 	int number;
 	number = (rand() % (max - min + 1)) + min;
-	if (number < max) {
+	if (number < 21) {
 		//Bet();
 		return true;
 	}
@@ -347,29 +648,45 @@ bool RandomBluePlayer::Strategy(int handScore)
 
 void MimicBluePlayer::Play(int handScore)
 {
-	cout << "Mimic Blue player Played!" << endl;
+	cout << "\nMimic Blue player Played!" << endl;
 
 	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Mimic blue player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Mimic blue player stayed..." << std::endl;
+	for (int i = 0; i < handScore; i++) {
+		
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+		
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << "Mimic blue player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << "Mimic blue player stayed..." << std::endl;
+			break;
+		}
+		
 	}
 }
+
 
 bool MimicBluePlayer::Strategy(int handScore)
 {
 	if (handScore <= 16)
 	{
+		//std::cout << "Mimic blue player drew a card!" << std::endl;
 		return true;
 	}
 	else
 	{
+		//std::cout << "Mimic blue player stayed..." << std::endl;
 		return false;
 	}
 }
@@ -379,18 +696,30 @@ bool MimicBluePlayer::Strategy(int handScore)
 
 void SafeBluePlayer::Play(int handScore)
 {
-	cout << "Safe blue player Played!" << endl;
+	cout << "\nSafe Blue player Played!" << endl;
 
 	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Safe blue player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Safe blue player stayed..." << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << "Safe blue player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << "Safe blue player stayed..." << std::endl;
+			break;
+		}
 	}
 }
 
@@ -398,11 +727,11 @@ void SafeBluePlayer::Play(int handScore)
 
 bool SafeBluePlayer::Strategy(int handScore)
 {
-	if (handScore > 16) {
-		return true;
+	if (handScore > 16 && handScore < 21) {
+		return false;
 	}
 	else {
-		return false;
+		return true;
 	}
 }
 
@@ -412,18 +741,30 @@ bool SafeBluePlayer::Strategy(int handScore)
 
 void CustomBluePlayer::Play(int handScore)
 {
-	cout << "Custom blue player Played!" << endl;
+	cout << "\nCustom Blue player Played!" << endl;
 
 	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Custom blue player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Custom blue player stayed..." << std::endl;
+	for (int i = 0; i < handScore; i++) {
+
+		if (handScore == 21) {
+			std::cout << "Black Jack!!!" << std::endl;;
+			break;
+		}
+
+		if (handScore > 21) {
+			std::cout << "Bust!!!, Play again!!" << std::endl;;
+			break;
+		}
+		if (Strategy(handScore))
+		{
+			std::cout << "Custom blue player drew a card!" << std::endl;
+			break;
+		}
+		if (!Strategy(handScore))
+		{
+			std::cout << "Custom blue player stayed..." << std::endl;
+			break;
+		}
 	}
 }
 
@@ -440,151 +781,3 @@ bool CustomBluePlayer::Strategy(int handScore) {
 }
 
 
-// Black Player ---------------------------------
-// Black Player ---------------------------------
-// Black Player ---------------------------------
-// Black Player ---------------------------------
-
-// --------------------------------- Random Player ----------------------------------------------------------//
-
-void RandomBlackPlayer::Play(int handScore)
-{
-	cout << "Random black player Played!" << endl;
-
-	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Random black player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Random black player stayed..." << std::endl;
-	}
-}
-
-
-
-bool RandomBlackPlayer::Strategy(int handScore)
-{
-	//int min = 1;
-	//int max = 2;
-	int min = handScore + 1;
-	int max = handScore + 2;
-
-	int number;
-	number = (rand() % (max - min + 1)) + min;
-	if (number < max) {
-		//Bet();
-		return true;
-	}
-	else {
-		//cout << "Random Red Player Skips!" << endl;
-		return false;
-	}
-
-}
-
-
-// --------------------------------- Mimic Player ----------------------------------------------------------//
-
-
-void MimicBlackPlayer::Play(int handScore)
-{
-	cout << "Mimic black player Played!" << endl;
-
-	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Mimic black player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Mimic black player stayed..." << std::endl;
-	}
-}
-
-bool MimicBlackPlayer::Strategy(int handScore)
-{
-	if (handScore <= 16)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-// --------------------------------- Safe Player ----------------------------------------------------------//
-
-
-void SafeBlackPlayer::Play(int handScore)
-{
-	cout << "Safe black player Played!" << endl;
-
-	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Safe black player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Safe black player stayed..." << std::endl;
-	}
-}
-
-
-
-bool SafeBlackPlayer::Strategy(int handScore)
-{
-	if (handScore > 16) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-
-
-// --------------------------------- Custom Player ----------------------------------------------------------//
-
-
-void CustomBlackPlayer::Play(int handScore)
-{
-	cout << "Custom black player Played!" << endl;
-
-	std::cout << "Hand Score : " << handScore << std::endl;
-	if (Strategy(handScore))
-	{
-		// TODO: draw a card
-		std::cout << "Custom black player drew a card!" << std::endl;
-	}
-	else
-	{
-		// TODO: stay
-		std::cout << "Custom black player stayed..." << std::endl;
-	}
-}
-
-
-bool CustomBlackPlayer::Strategy(int handScore)
-{
-	if (handScore <= 16 && handScore >= 5)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-
-// ---------------------------------
