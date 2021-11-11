@@ -103,24 +103,25 @@ void player_play()
 {
     Player* blue_p = new MimicBluePlayer();
     Player* black_p = new SafeBlackPlayer();
-    Player* green_p = new CustomGreenPlayer();
+    Player* green_p = new CustomBluePlayer();
     Player* red_p = new RandomRedPlayer();
+    
 
-    blue_p->Play(15);
-    blue_p->Play(18);
-    std::cout << std::endl;
+   blue_p->Play((rand() % 24) + 1); // picking a random number between 1 - 24
+   blue_p->Play((rand() % 24) + 1);
+   std::cout <<"---------------------------------"<< std::endl;
 
-    black_p->Play(20);
-    black_p->Play(13);
-    std::cout << std::endl;
+   black_p->Play((rand() % 24) + 1);
+   black_p->Play((rand() % 24) + 1);
+   std::cout << "---------------------------------" << std::endl;
 
-    green_p->Play(17);
-    green_p->Play(10);
-    std::cout << std::endl;
+   green_p->Play((rand() % 24) + 1);
+   green_p->Play((rand() % 24) + 1);
+   std::cout << "---------------------------------" << std::endl;
 
-    red_p->Play(12);
-    red_p->Play(21);
-    std::cout << std::endl;
+   red_p->Play((rand() % 24) + 1);
+    red_p->Play((rand() % 24) + 1);
+    std::cout << "---------------------------------" << std::endl;
 
 }
 
@@ -152,7 +153,7 @@ void randomPlayer_quit() {
 
 void player_quit()
 {
-    Player* p = new MimicBluePlayer();
+    Player* p = new MimicBlackPlayer();
     
     for (int i = 1; i < 5; i++)
     {
@@ -164,6 +165,7 @@ void player_quit()
         if (p->QuittingBehaviour())
         {
             cout << "\nplayer quit the game..." << endl;
+            break;
         }
         else
         {
@@ -181,9 +183,9 @@ int main()
 
     //test_polymorphism();
 
-    //test_dealer();
+    test_dealer();
 
-    player_bet();
+    //player_bet();
 
     //player_play();
 
