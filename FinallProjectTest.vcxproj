@@ -139,17 +139,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Casino.cpp" />
     <ClCompile Include="ColorPlayer.cpp" />
     <ClCompile Include="Dealer.cpp" />
     <ClCompile Include="FinallProjectTest.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="StatisticsKeeper.cpp" />
     <ClCompile Include="StrategyPlayer.cpp" />
+    <ClCompile Include="SystemController.cpp" />
+    <ClCompile Include="Table.cpp" />
+    <ClCompile Include="TrafficGen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Casino.h" />
     <ClInclude Include="ColorPlayer.h" />
     <ClInclude Include="Dealer.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="StatisticsKeeper.h" />
     <ClInclude Include="StrategyPlayer.h" />
+    <ClInclude Include="SystemController.h" />
+    <ClInclude Include="Table.h" />
+    <ClInclude Include="TrafficGen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

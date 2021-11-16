@@ -1,35 +1,57 @@
 #ifndef COLOR_PLAYER_H
 #define COLOR_PLAYER_H
 
-/// hi hihihihih
-
-
-
 
 #include "Player.h"
 #include <random>
 
-class RedPlayer : public Player {
+
+class ColorPlayer : public Player {
+protected:
+    int start_amount;
+    int end_amount;
+    int multiple;
 public:
-    int Bet() override;
+    ColorPlayer()
+    {
+        start_amount = 0;
+        end_amount = 0;
+        multiple = 0;
+    }
+    int Bet() override
+    {
+        int amount = start_amount;
+        int additive = rand() % (((end_amount - start_amount) / multiple) + 1);
+        amount += multiple * additive;
+        return amount;
+    }
+};
+
+
+class RedPlayer : public ColorPlayer {
+public:
+    RedPlayer();
     bool QuittingBehaviour() override;
 };
 
-class GreenPlayer : public Player {
+
+class GreenPlayer : public ColorPlayer {
 public:
-    int Bet() override;
+    GreenPlayer();
     bool QuittingBehaviour() override;
 };
 
-class BlackPlayer : public Player {
+
+class BlackPlayer : public ColorPlayer {
 public:
-    int Bet() override;
+    BlackPlayer();
     bool QuittingBehaviour() override;
 };
 
-class BluePlayer : public Player {
+
+class BluePlayer : public ColorPlayer {
 public:
-    int Bet() override;
+    BluePlayer();
     bool QuittingBehaviour() override;
 };
 

@@ -1,15 +1,15 @@
 #include "Dealer.h"
 
-
 // constructor
 Dealer::Dealer(int in_ID, int in_tableNumber, double startMoney)
 {
 	ID = in_ID;
 	TableNumber = in_tableNumber;
-	Amount = startMoney; // mainly we create dealer constructor to control this variable 
-	// and test quittingBehaviour function 
-	salary = 0.0;
+	Amount = startMoney;
+	salary = 0;
+
 }
+
 
 double Dealer::DrawMoney()
 {
@@ -18,13 +18,11 @@ double Dealer::DrawMoney()
 	return 10000.0;
 }
 
+
 void Dealer::GoToLounge()
 {
-	// TODO: dealer goes to lounge 
-	//std::cout << "Dealer is in the lounge " << std::endl;
-	
+	// TODO: dealer goes to lounge
 }
-
 
 
 int Dealer::Bet()
@@ -32,6 +30,7 @@ int Dealer::Bet()
 	// TODO: bet money
 	return 0;
 }
+
 
 bool Dealer::QuittingBehaviour()
 {
@@ -80,45 +79,10 @@ bool Dealer::QuittingBehaviour()
 bool Dealer::Strategy(int handScore)
 {
 	if (handScore <= 16)
-	{
 		return true;
-	}
 	else
-	{
 		return false;
-	}
 }
-
- 
-void Dealer::Play(int handScore)
-{
-	std::cout << "Dealer Played!" << std::endl;
-
-	std::cout << "Hand Score : " << handScore << std::endl;
-	for (int i = 0; i < handScore; i++) {
-
-		if (handScore == 21) {
-			std::cout << "Black Jack!!!" << std::endl;;
-			break;
-		}
-
-		if (handScore > 21) {
-			std::cout << "Bust!!!, Play again!!" << std::endl;;
-			break;
-		}
-		if (Strategy(handScore))
-		{
-			std::cout << "Dealer drew a card!" << std::endl;
-			break;
-		}
-		if (!Strategy(handScore))
-		{
-			std::cout << "Dealer stayed..." << std::endl;
-			break;
-		}
-	}
-}
-
 
 
 void Dealer::UpdateSalary()
@@ -128,12 +92,15 @@ void Dealer::UpdateSalary()
 	salary = TrackRecord.size() * roundRate;
 }
 
+
 void Dealer::win()
 {
 	Player::win();
 }
 
+
 void Dealer::lose()
 {
 	Player::lose();
 }
+

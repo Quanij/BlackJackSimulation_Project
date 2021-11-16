@@ -1,13 +1,15 @@
 #include <iostream>
 #include <random>
-#include <time.h>
+#include <ctime>
 #include <vector>
 
 #include "StrategyPlayer.h"
 #include "Dealer.h"
 
+#include "Casino.h"
+
 using std::vector;
-/*
+
 void test_polymorphism()
 {
     Player* players[16];
@@ -38,7 +40,7 @@ void test_polymorphism()
         // polymoprhic method
         players[i]->Play(18);
     }
-}*/
+}
 
 void test_dealer()
 {
@@ -59,10 +61,16 @@ void test_dealer()
 
 
     // test Dealer track record
-
+    if (d->QuittingBehaviour())
+    {
+        cout << "Dealer track record below threshold, dealer going to lounge..." << endl;
+    }
+    else
+    {
+        cout << "Dealer track record above threshold, dealer keeps his job!" << endl;
+    }
     d->win();
-    d->win();
-    d->win();
+    //d->win();
 
     d->lose();
     d->lose();
@@ -74,106 +82,66 @@ void test_dealer()
     {
         cout << "Dealer track record above threshold, dealer keeps his job!" << endl;
     }
-    
-    /*if (d->QuittingBehaviour())
-    {
-        cout << "Dealer track record below threshold, dealer going to lounge..." << endl;
-    }
-    else
-    {
-        cout << "Dealer track record above threshold, dealer keeps his job!" << endl;
-    }
-    */
-
 
     // test dealer salary
-    d->UpdateSalary();// updating depanding on how much rounds which in the test are 4  
+    d->UpdateSalary();
     cout << "Salary : " << d->getSalary() << endl;
 }
 
-void player_bet()
+void test_blue_bet()
 {
-    Player* p = new MimicGreenPlayer();
-    for (int i = 0; i < 4; i++) {
-        cout << "Player bet " << p->Bet() << endl;
+    Player* p = new MimicBluePlayer();
+    // testing Bet()
+    for (int i = 0; i < 10; i++)
+    {
+        cout << "Blue Player bet " << p->Bet() << endl;
     }
+    std::cout << std::endl;
+
 }
 
-void player_play()
+void test_mimic_play()
 {
     Player* blue_p = new MimicBluePlayer();
-    Player* black_p = new SafeBlackPlayer();
-    Player* green_p = new CustomBluePlayer();
-    Player* red_p = new RandomRedPlayer();
-    
+    Player* black_p = new MimicBlackPlayer();
+    Player* green_p = new MimicGreenPlayer();
+    Player* red_p = new MimicRedPlayer();
 
-   blue_p->Play((rand() % 24) + 1); // picking a random number between 1 - 24
-   blue_p->Play((rand() % 24) + 1);
-   std::cout <<"---------------------------------"<< std::endl;
+    blue_p->Play(15);
+    blue_p->Play(18);
+    std::cout << std::endl;
 
-   black_p->Play((rand() % 24) + 1);
-   black_p->Play((rand() % 24) + 1);
-   std::cout << "---------------------------------" << std::endl;
+    black_p->Play(20);
+    black_p->Play(13);
+    std::cout << std::endl;
 
-   green_p->Play((rand() % 24) + 1);
-   green_p->Play((rand() % 24) + 1);
-   std::cout << "---------------------------------" << std::endl;
+    green_p->Play(17);
+    green_p->Play(19);
+    std::cout << std::endl;
 
-   red_p->Play((rand() % 24) + 1);
-    red_p->Play((rand() % 24) + 1);
-    std::cout << "---------------------------------" << std::endl;
+    red_p->Play(2);
+    red_p->Play(8);
+    std::cout << std::endl;
 
 }
 
-void randomPlayer_quit() {
-    Player* p = new MimicRedPlayer();
-
-        p->win();
-        p->win();
-        p->win();
-
-        p->lose();
-        p->lose();
-        p->lose();
-        p->lose();
-        p->lose();
-        p->lose();
-        p->lose();
-        p->lose();
-        if (p->QuittingBehaviour())
-        {
-            cout << "\nplayer quit the game..." << endl;
-        }
-        else
-        {
-            cout << "player stays strong!" << endl;
-        }
-    }
-
-
-void player_quit()
+void test_blue_quit()
 {
-    Player* p = new MimicBlackPlayer();
-    
-    for (int i = 1; i < 5; i++)
-    {
-        //p->lose();
-        //p->lose();
-        p->lose();
-        cout << "Round #" << i << endl;
+    Player* p = new MimicBluePlayer();
 
+    for (int i = 1; i < 4; i++)
+    {
+        cout << "Loss #" << i << endl;
+        p->lose();
         if (p->QuittingBehaviour())
         {
-            cout << "\nplayer quit the game..." << endl;
-            break;
+            cout << "Blue player quit the game..." << endl;
         }
         else
         {
-            cout << "player stays strong!" << endl;
+            cout << "Blue player stays strong!" << endl;
         }
     }
-
-
 }
 
 
@@ -183,15 +151,18 @@ int main()
 
     //test_polymorphism();
 
-    test_dealer();
+    //test_dealer();
 
-    //player_bet();
+    //test_blue_bet();
 
-    //player_play();
+    //test_mimic_play();
 
-    //player_quit();
-    
-    //randomPlayer_quit();
+    //test_blue_quit();
+
+    //for(char i = 3; i < 7; i++)
+    //    cout << (int)i << ":" << i << endl;
+
+    Casino myCasino;
 
     return 0;
 }

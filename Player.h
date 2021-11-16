@@ -1,31 +1,38 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <iostream>
 #include <vector>
+
+using std::cout;
+using std::endl;
 
 class Player {
 protected:
     int ID;
     int TableNumber;
+
+    double StartAmount;// using it in the quitting behaviour of green player, and bet function of all players
     double Amount;
-    std::vector<char> TrackRecord; // track the record for each player , and 
-    //it keeps a running record of wins and losses for all players
-    // both dealers and normal players, the reason of declaring it 
-    // because of using it in Salary for Dealer, and also Quitting Bheavior for players
 
+    int RoundLimit;   // using it in the quitting behaviour of black player
+    int RoundsPlayed; // using it in the quitting behaviour of black player
 
+    std::vector<char> TrackRecord;
 
 public:
-    virtual int Bet() = 0;
-    virtual void Play(int) = 0; // to pass int the hardcoded hand score to simluate Play
-    virtual bool QuittingBehaviour() = 0;
-    virtual bool Strategy(int) = 0; // to pass int the hardcoded hand score 
+    virtual int Bet() = 0; // color class
+    virtual bool QuittingBehaviour() = 0; // color class
 
-    virtual void win(); //to record the actual wins and losses
+    virtual bool Strategy(int) = 0; // strategy class
+
+    virtual void Play(int);
+
+    virtual void win();
     virtual void lose();
 
-    virtual double getAmount() const { return Amount; } // these method for debugging dealer money amount 
-    virtual void setAmount(double val) { Amount = val; } // setting an amount to test the draw money function
+    virtual double getAmount() const { return Amount; } // using it in dealer class
+    virtual void setAmount(double val) { Amount = val; }  // using it in dealer class
 };
 
 #endif
